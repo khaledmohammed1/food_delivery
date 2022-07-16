@@ -1,71 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/views/constants/constants.dart';
 
+import '../widgets/drawer_list_view.dart';
+import '../widgets/listTile.dart';
+import '../widgets/single_product.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Widget singleProduct() {
-      return Padding(
-        padding: const EdgeInsets.only(right: 10, top: 5, bottom: 10),
-        child: Container(
-          height: 220,
-          width: 160,
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(10)),
-          child: Column(
-            children: [
-              Expanded(
-                flex: 2,
-                child: Container(
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(10),
-                      topLeft: Radius.circular(10),
-                    ),
-                    image: DecorationImage(
-                      fit: BoxFit.fill,
-                      image: NetworkImage(
-                        "https://res.cloudinary.com/kha10led/image/upload/v1653869382/ecommerce/grilled-beef-steak-dark-wooden-surface_qydxgo.jpg",
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const [
-                      Text(
-                        "Meat",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w400),
-                      ),
-                      Text(
-                        "Meat",
-                        style: TextStyle(
-                          color: Colors.grey,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      );
-    }
-
     return Scaffold(
-      drawer: const Drawer(),
+      drawer: Drawer(
+        width: MediaQuery.of(context).size.width * .8,
+        child: Container(
+          color: primaryColor.withOpacity(.05),
+          child: const Drawer_list_view(),
+        ),
+      ),
       appBar: AppBar(
         actions: const [
           CircleAvatar(
@@ -103,12 +55,12 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  height: 150,
+                  height: MediaQuery.of(context).size.height*.25,
                   decoration: BoxDecoration(
                     image: const DecorationImage(
                       fit: BoxFit.cover,
                       image: NetworkImage(
-                          "https://res.cloudinary.com/kha10led/image/upload/v1655780709/ecommerce/banner3_dyn0o4.webp"),
+                          "https://res.cloudinary.com/kha10led/image/upload/v1657931610/ecommerce/louis-hansel-K47107aP8UU-unsplash_cyzsdq.jpg"),
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -121,8 +73,8 @@ class HomeScreen extends StatelessWidget {
                     children: const [
                       Text(
                         "Meals",
-                        style:
-                            TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w400),
                       ),
                       Text(
                         "View all",
@@ -136,11 +88,38 @@ class HomeScreen extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      singleProduct(),
-                      singleProduct(),
-                      singleProduct(),
-                      singleProduct(),
-                      singleProduct(),
+                      SingleProduct(
+                        url:
+                            "https://res.cloudinary.com/kha10led/image/upload/v1653869382/ecommerce/grilled-beef-steak-dark-wooden-surface_qydxgo.jpg",
+                        title: 'grilled-beef',
+                        price: "50",
+                        description:
+                            'In marketing, a product is an object, or system, or service made available for consumer use as of the consumer demand; it is anything that can be offered to a market to satisfy the desire or need of a customer',
+                      ),
+                      SingleProduct(
+                        title: "chicken",
+                        price: "30",
+                        url:
+                            "https://res.cloudinary.com/kha10led/image/upload/v1653869154/ecommerce/christmas-table-served-with-turkey-decorated-with-bright-tinsel-candles_helklj.jpg",
+                        description:
+                            'In marketing, a product is an object, or system, or service made available for consumer use as of the consumer demand; it is anything that can be offered to a market to satisfy the desire or need of a customer',
+                      ),
+                      SingleProduct(
+                        title: "fried-chicken",
+                        price: "30",
+                        url:
+                            "https://res.cloudinary.com/kha10led/image/upload/v1653869027/ecommerce/fried-chicken-french-fries-black-cement-floor_fgp1ia.jpg",
+                        description:
+                            'In marketing, a product is an object, or system, or service made available for consumer use as of the consumer demand; it is anything that can be offered to a market to satisfy the desire or need of a customer',
+                      ),
+                      SingleProduct(
+                        title: "pizza",
+                        price: "35",
+                        url:
+                            "https://res.cloudinary.com/kha10led/image/upload/v1653864130/ecommerce/pizza-pizza-filled-with-tomatoes-salami-olives_kxn5c4.jpg",
+                        description:
+                            'In marketing, a product is an object, or system, or service made available for consumer use as of the consumer demand; it is anything that can be offered to a market to satisfy the desire or need of a customer',
+                      ),
                     ],
                   ),
                 ),
@@ -152,8 +131,8 @@ class HomeScreen extends StatelessWidget {
                     children: const [
                       Text(
                         "Meals",
-                        style:
-                            TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w400),
                       ),
                       Text(
                         "View all",
@@ -166,13 +145,7 @@ class HomeScreen extends StatelessWidget {
                   physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: [
-                      singleProduct(),
-                      singleProduct(),
-                      singleProduct(),
-                      singleProduct(),
-                      singleProduct(),
-                    ],
+                    children: const [],
                   ),
                 )
               ],
@@ -183,3 +156,4 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
