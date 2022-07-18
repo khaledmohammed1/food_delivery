@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/views/constants/constants.dart';
+import 'package:food_delivery/views/search/search.dart';
+import 'package:get/get.dart';
 
+import '../cart/cart.dart';
 import '../widgets/drawer_list_view.dart';
-import '../widgets/listTile.dart';
 import '../widgets/single_product.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -15,27 +17,34 @@ class HomeScreen extends StatelessWidget {
         width: MediaQuery.of(context).size.width * .8,
         child: Container(
           color: primaryColor.withOpacity(.05),
-          child: const Drawer_list_view(),
+          child: const drawerListView(),
         ),
       ),
       appBar: AppBar(
-        actions: const [
-          CircleAvatar(
-            radius: 12,
-            backgroundColor: primaryColor,
-            child: Icon(
-              Icons.search,
-              color: Colors.white,
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 5),
-            child: CircleAvatar(
+        centerTitle: true,
+        actions:  [
+          GestureDetector(
+            onTap: ()=>Get.to(()=>const Search()),
+            child: const CircleAvatar(
               radius: 12,
               backgroundColor: primaryColor,
               child: Icon(
-                Icons.add_shopping_cart_outlined,
+                Icons.search,
                 color: Colors.white,
+              ),
+            ),
+          ),
+          GestureDetector(
+            onTap: ()=>Get.to(()=>const Cart()),
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: CircleAvatar(
+                radius: 12,
+                backgroundColor: primaryColor,
+                child: Icon(
+                  Icons.add_shopping_cart_outlined,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),

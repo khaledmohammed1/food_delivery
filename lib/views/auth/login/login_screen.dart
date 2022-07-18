@@ -27,15 +27,7 @@ class Login extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 20,
-          ),
-          SignInButton(
-            Buttons.Apple,
-            text: "Sign up with Apple",
-            onPressed: () {},
-          ),
-          const SizedBox(
-            height: 2,
+            height: 10,
           ),
           GetBuilder<AuthController>(
             init: Get.put(AuthController()),

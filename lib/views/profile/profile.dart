@@ -30,7 +30,7 @@ class MyProfile extends StatelessWidget {
         width: MediaQuery.of(context).size.width * .8,
         child: Container(
           color: primaryColor.withOpacity(.05),
-          child: const Drawer_list_view(),
+          child: const drawerListView(),
         ),
       ),
       appBar: AppBar(
