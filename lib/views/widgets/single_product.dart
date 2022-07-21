@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '../product_overview/product_overview.dart';
 class SingleProduct extends StatelessWidget {
-   SingleProduct({Key? key,required this.url,required this.title,required this.price,required this.description}) : super(key: key);
+   SingleProduct({Key? key,required this.url,required this.title,required this.price,required this.description,}) : super(key: key);
   String url;
   String title;
   String price;

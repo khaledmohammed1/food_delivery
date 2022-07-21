@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/views/search/search_item.dart';
+import 'package:food_delivery/views/widgets/single_item.dart';
 import 'package:get/get.dart';
 
 import '../constants/constants.dart';
@@ -54,12 +54,11 @@ class Search extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 10,),
-          const SearchItem(),
-          const SearchItem(),
-          const SearchItem(),
-          const SearchItem(),
-          const SearchItem(),
-          const SearchItem()
+           SingleItem(),
+           SingleItem(),
+           SingleItem(),
+           SingleItem(),
+           SingleItem(),
       ],
       ),
     );
